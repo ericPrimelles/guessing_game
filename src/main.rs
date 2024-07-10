@@ -3,7 +3,7 @@ use rand::Rng;
 use std::cmp::Ordering;
 fn main() {
     println!("Welcome to the 2024 World Guessing Cup!");
-    let secret_number = rand::thread_rng().gen_range(1..=10);
+    let secret_number = rand::thread_rng().gen_range(1..=100);
     println!("Input your Guess");
 
     loop {
@@ -17,7 +17,11 @@ fn main() {
         match guess_int.cmp(&secret_number) {
             Ordering::Less => println!("Too small!"),
             Ordering::Greater => println!("Too high!"),
-            Ordering::Equal => println!("You Win!")
+            Ordering::Equal => {
+                println!("You Win!");
+                break;
+
+            }
         }
 
     }
